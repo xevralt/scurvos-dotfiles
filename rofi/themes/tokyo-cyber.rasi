@@ -1,0 +1,106 @@
+
+configuration {
+    modi: "drun";
+    show-icons: true;
+    drun-display-format: "{name}";
+    font: "JetBrainsMono Nerd Font 11";
+}
+
+* {
+    background:     #0b1020;
+    background-alt: #151b32;
+    foreground:     #c0caf5;
+    muted:          #7982ad;
+    blue:           #7aa2f7;
+    cyan:           #7dcfff;
+    purple:         #bb9af7;
+    selected:       #20284a;
+
+    bg:             @background;
+    fg:             @foreground;
+    accent:         @cyan;
+
+    border-color:   #414b80;
+}
+
+window {
+    width: 520px;
+    border: 1px;
+    border-color: @border-color;
+    border-radius: 14px;
+    background-color: @background;
+}
+
+mainbox {
+    padding: 12px;
+    spacing: 10px;
+    background-color: @background;
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    padding: 10px 12px;
+    spacing: 10px;
+    border: 1px;
+    border-color: #343d68;
+    border-radius: 8px;
+    background-color: @background-alt;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: @cyan;
+    background-color: transparent;
+}
+
+entry {
+    placeholder: "Search applications...";
+    placeholder-color: @muted;
+    text-color: @foreground;
+    background-color: transparent;
+}
+
+listview {
+    lines: 6;
+    spacing: 3px;
+    fixed-height: true;
+    scrollbar: false;
+    background-color: transparent;
+}
+
+element {
+    padding: 9px 10px;
+    spacing: 10px;
+    border-radius: 7px;
+    background-color: transparent;
+    text-color: @foreground;
+    children: [ element-icon, element-text ];
+}
+
+element-icon {
+    size: 22px;
+    background-color: transparent;
+}
+
+element-text {
+    vertical-align: 0.5;
+    background-color: transparent;
+    text-color: inherit;
+}
+
+element selected {
+    background-color: @selected;
+    text-color: @cyan;
+    border: 1px;
+    border-color: #6655a8;
+}
+
+element selected.normal {
+    background-color: @selected;
+    text-color: @cyan;
+}
+
+element-text selected {
+    text-color: @cyan;
+}
+
