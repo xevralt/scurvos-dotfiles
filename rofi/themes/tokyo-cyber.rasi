@@ -1,3 +1,4 @@
+
 @import "~/.cache/matugen/rofi-colors.rasi"
 
 configuration {
@@ -20,7 +21,6 @@ configuration {
     bg:             @background;
     fg:             @foreground;
     accent:         @cyan;
-
     border-color:   @matugen-border;
 }
 
@@ -34,7 +34,7 @@ window {
 
 mainbox {
     padding: 12px;
-    spacing: 10px;
+    spacing: 9px;
     background-color: @background;
     children: [ inputbar, listview ];
 }
@@ -43,14 +43,14 @@ inputbar {
     padding: 10px 12px;
     spacing: 10px;
     border: 1px;
-    border-color: #343d68;
-    border-radius: 8px;
+    border-color: @border-color;
+    border-radius: 9px;
     background-color: @background-alt;
     children: [ prompt, entry ];
 }
 
 prompt {
-    text-color: @cyan;
+    text-color: @accent;
     background-color: transparent;
 }
 
@@ -72,7 +72,9 @@ listview {
 element {
     padding: 9px 10px;
     spacing: 10px;
-    border-radius: 7px;
+    border: 1px;
+    border-color: transparent;
+    border-radius: 8px;
     background-color: transparent;
     text-color: @foreground;
     children: [ element-icon, element-text ];
@@ -91,17 +93,17 @@ element-text {
 
 element selected {
     background-color: @selected;
-    text-color: @cyan;
+    text-color: @accent;
     border: 1px;
-    border-color: #6655a8;
+    border-color: @border-color;
 }
 
 element selected.normal {
     background-color: @selected;
-    text-color: @cyan;
+    text-color: @accent;
 }
 
 element-text selected {
-    text-color: @cyan;
+    text-color: @accent;
 }
 
