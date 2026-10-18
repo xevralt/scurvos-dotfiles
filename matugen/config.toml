@@ -1,0 +1,7 @@
+[config]
+reload_apps = false
+set_wallpaper = false
+
+[templates.rofi]
+input_path = "~/dotfiles/matugen/templates/rofi-colors.rasi"
+output_path = "~/.cache/matugen/rofi-colors.rasi"

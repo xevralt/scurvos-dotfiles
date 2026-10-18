@@ -1,3 +1,4 @@
+@import "~/.cache/matugen/rofi-colors.rasi"
 
 configuration {
     modi: "drun";
@@ -7,20 +8,20 @@ configuration {
 }
 
 * {
-    background:     #0b1020;
-    background-alt: #151b32;
-    foreground:     #c0caf5;
-    muted:          #7982ad;
-    blue:           #7aa2f7;
-    cyan:           #7dcfff;
-    purple:         #bb9af7;
-    selected:       #20284a;
+    background:     @matugen-background;
+    background-alt: @matugen-selected;
+    foreground:     @matugen-foreground;
+    muted:          @matugen-muted;
+    blue:           @matugen-accent;
+    cyan:           @matugen-accent;
+    purple:         @matugen-accent-alt;
+    selected:       @matugen-selected;
 
     bg:             @background;
     fg:             @foreground;
     accent:         @cyan;
 
-    border-color:   #414b80;
+    border-color:   @matugen-border;
 }
 
 window {
