@@ -1,18 +1,23 @@
+
 @import url("file:///home/xevralt/.cache/matugen/waybar-colors.css");
 
+/* Global defaults */
 * {
     font-family: "JetBrainsMono Nerd Font", monospace;
     font-size: 12px;
     min-height: 0;
     border: none;
     border-radius: 0;
+    transition: background-color 150ms ease, color 150ms ease;
 }
 
+/* Compact floating-style bar */
 window#waybar {
-    background: @background;
+    background: alpha(@background, 0.94);
     color: @foreground;
 }
 
+/* Shared module styling */
 #workspaces,
 #window,
 #clock,
@@ -20,28 +25,69 @@ window#waybar {
 #network,
 #battery,
 #tray {
-    padding: 0 10px;
     margin: 4px 3px;
-    border-radius: 8px;
+    padding: 0 9px;
+    border-radius: 9px;
     background: @surface;
     color: @foreground;
 }
 
+/* Rounded workspace pills */
+#workspaces {
+    padding: 0 3px;
+}
+
 #workspaces button {
-    padding: 0 8px;
-    color: @muted;
+    margin: 4px 2px;
+    padding: 0 9px;
+    border-radius: 7px;
     background: transparent;
+    color: @muted;
+    font-weight: normal;
+}
+
+#workspaces button:hover {
+    background: alpha(@accent, 0.16);
+    color: @foreground;
 }
 
 #workspaces button.active {
-    color: @background;
     background: @accent;
-    border-radius: 6px;
+    color: @background;
+    font-weight: bold;
 }
 
+#workspaces button.urgent {
+    background: alpha(@urgent, 0.18);
+    color: @urgent;
+}
+
+/* Window title: quieter than the workspace pills */
+#window {
+    background: transparent;
+    color: @muted;
+}
+
+/* Center clock */
 #clock {
+    padding: 0 13px;
+    background: @surface;
     color: @accent;
     font-weight: bold;
+}
+
+/* Right-side system modules */
+#pulseaudio,
+#network,
+#battery,
+#tray {
+    padding: 0 9px;
+}
+
+#pulseaudio:hover,
+#network:hover,
+#battery:hover {
+    background: alpha(@accent, 0.14);
 }
 
 #pulseaudio.muted,
@@ -49,17 +95,25 @@ window#waybar {
     color: @muted;
 }
 
+/* Battery states */
 #battery.warning {
     color: @accent;
 }
 
 #battery.critical {
+    background: alpha(@urgent, 0.14);
     color: @urgent;
 }
 
+/* Tooltips */
 tooltip {
     background: @surface;
     color: @foreground;
     border: 1px solid @border;
-    border-radius: 8px;
+    border-radius: 9px;
 }
+
+tooltip label {
+    padding: 4px;
+}
+
