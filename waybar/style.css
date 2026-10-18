@@ -1,0 +1,65 @@
+@import url("file:///home/xevralt/.cache/matugen/waybar-colors.css");
+
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 12px;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background: @background;
+    color: @foreground;
+}
+
+#workspaces,
+#window,
+#clock,
+#pulseaudio,
+#network,
+#battery,
+#tray {
+    padding: 0 10px;
+    margin: 4px 3px;
+    border-radius: 8px;
+    background: @surface;
+    color: @foreground;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    color: @muted;
+    background: transparent;
+}
+
+#workspaces button.active {
+    color: @background;
+    background: @accent;
+    border-radius: 6px;
+}
+
+#clock {
+    color: @accent;
+    font-weight: bold;
+}
+
+#pulseaudio.muted,
+#network.disconnected {
+    color: @muted;
+}
+
+#battery.warning {
+    color: @accent;
+}
+
+#battery.critical {
+    color: @urgent;
+}
+
+tooltip {
+    background: @surface;
+    color: @foreground;
+    border: 1px solid @border;
+    border-radius: 8px;
+}
