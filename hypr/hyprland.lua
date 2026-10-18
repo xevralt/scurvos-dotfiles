@@ -53,6 +53,7 @@ local menu = "rofi -show drun -theme ~/.config/rofi/themes/tokyo-cyber.rasi"
 --
  hl.on("hyprland.start", function () 
  hl.exec_cmd("waybar & awww & hypridle &")
+ hl.exec_cmd("swaync")
  end)
 
 
@@ -273,8 +274,9 @@ hl.bind(secondMod .. " + R", hl.dsp.exec_cmd(script))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("bash \"$HOME/dotfiles/matugen/wallpaper-picker.sh\""))
-hl.bind("SUPER + L", hl.dsp.exec_cmd("hyprlock"))
-
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind("SUPER + N", hl.dsp.exec_cmd("swaync-client -t -sw"))
+hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd("swaync-client -C"))
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))

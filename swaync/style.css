@@ -1,0 +1,73 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 12px;
+    transition: 150ms ease;
+}
+
+.control-center {
+    background: rgba(21, 19, 12, 0.96);
+    color: #e8e2d4;
+    border: 1px solid #595959;
+    border-radius: 14px;
+    padding: 10px;
+}
+
+.notification-row {
+    outline: none;
+}
+
+.notification {
+    background: #242117;
+    color: #e8e2d4;
+    border: 1px solid #454033;
+    border-radius: 10px;
+    margin: 5px 0;
+    padding: 8px;
+}
+
+.notification:hover {
+    background: #302c20;
+}
+
+.notification-content {
+    padding: 4px;
+}
+
+.summary {
+    color: #e8e2d4;
+    font-weight: bold;
+}
+
+.body {
+    color: #c9c2b3;
+}
+
+.close-button {
+    background: #454033;
+    color: #e8e2d4;
+    border-radius: 8px;
+}
+
+.close-button:hover {
+    background: #f38ba8;
+    color: #15130c;
+}
+
+.widget-title {
+    color: #e8e2d4;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.widget-title > button {
+    background: #302c20;
+    color: #e8e2d4;
+    border-radius: 8px;
+    padding: 5px 10px;
+}
+
+.widget-title > button:hover {
+    background: #454033;
+}
+
+.widget
