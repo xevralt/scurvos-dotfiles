@@ -14,22 +14,33 @@
 
 .notification-row {
     outline: none;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 5px 0;
 }
 
+.notification-row:focus,
+.notification:hover {
+    background: #242117;
+    border-color: #454033;
+    box-shadow: none;
+}
 .notification {
     background: #242117;
     color: #e8e2d4;
     border: 1px solid #454033;
     border-radius: 10px;
-    margin: 5px 0;
+    margin: 0;
     padding: 8px;
-}
-
-.notification:hover {
-    background: #302c20;
+    box-shadow: none;
 }
 
 .notification-content {
+    background: transparent;
+    border: none;
+    box-shadow: none;
     padding: 4px;
 }
 
