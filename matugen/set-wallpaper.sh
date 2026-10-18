@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 
 if [[ -z "${1:-}" || ! -f "$1" ]]; then
     echo "Usage: set-wallpaper.sh /path/to/wallpaper"
@@ -7,42 +7,31 @@ if [[ -z "${1:-}" || ! -f "$1" ]]; then
 fi
 
 WALLPAPER="$(realpath "$1")"
+MATUGEN_CONFIG="$HOME/dotfiles/matugen/config.toml"
 
-# Set the wallpaper with a smooth transition.
+# Set wallpaper with a smooth transition.
 awww img "$WALLPAPER" \
-    --transition-type fade \
-    --transition-duration 2
+    --transition-type grow \
+    --transition-pos center \
+    --transition-duration 3 \
+    --transition-fps 60 \
+    --transition-step 90
 
-# Generate colors for Rofi, Kitty, and Waybar.
+# Generate all application palettes.
 matugen image "$WALLPAPER" \
-    --config "$HOME/dotfiles/matugen/config.toml" \
+    --config "$MATUGEN_CONFIG" \
     --source-color-index 0
 
-# Apply Matugen's generated colors to Hyprland borders.
-HYPR_COLORS="$HOME/.cache/matugen/hyprland-colors.conf"
+# Reload Hyprland to apply the generated border colors.
+hyprctl reload
 
-ACTIVE_HEX="$(sed -n 's/^\$active_border = #\([[:xdigit:]]\{6\}\)$/\1/p' "$HYPR_COLORS")"
-INACTIVE_HEX="$(sed -n 's/^\$inactive_border = #\([[:xdigit:]]\{6\}\)$/\1/p' "$HYPR_COLORS")"
+# Restart Waybar to load the regenerated CSS.
+# Reload Waybar's stylesheet without restarting the bar.
+pkill -USR2 -x waybar 2>/dev/null || true
+# Reload SwayNC styling.
+swaync-client -rs 2>/dev/null || true
 
-if [[ "$ACTIVE_HEX" =~ ^[[:xdigit:]]{6}$ &&
-      "$INACTIVE_HEX" =~ ^[[:xdigit:]]{6}$ ]]; then
-    hyprctl keyword general:col.active_border \
-        "rgba(${ACTIVE_HEX}ff) rgba(${ACTIVE_HEX}ff) 45deg"
-
-    hyprctl keyword general:col.inactive_border \
-        "rgba(${INACTIVE_HEX}aa)"
-else
-    echo "Warning: Could not read Matugen border colors." >&2
-fi
-
-# Restart Waybar to load its updated CSS.
-pkill -x waybar 2>/dev/null || true
-nohup waybar \
-    -c "$HOME/.config/waybar/config.jsonc" \
-    -s "$HOME/.config/waybar/style.css" \
-    >/tmp/waybar.log 2>&1 &
-
-# Ask running Kitty instances to reload their configuration.
+# Reload generated Kitty colors.
 pkill -USR1 -x kitty 2>/dev/null || true
 
-echo "Wallpaper changed and Matugen colors regenerated."
+echo "Wallpaper changed; Matugen palettes regenerated."
