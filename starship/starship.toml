@@ -1,0 +1,59 @@
+
+# ── Hyprland Rice · Starship ──
+
+add_newline = true
+command_timeout = 1000
+scan_timeout = 10
+
+format = """
+[╭─](bold cyan)$os$username$directory$git_branch$git_status$fill$cmd_duration$line_break[╰─](bold cyan)$character"""
+
+[os]
+disabled = false
+format = "[$symbol ](bold cyan)"
+
+[os.symbols]
+Arch = "󰣇"
+
+[username]
+show_always = true
+format = "[$user](bold blue) "
+
+[directory]
+style = "bold cyan"
+format = "[$path ]($style)"
+truncation_length = 3
+truncate_to_repo = true
+read_only = " 󰌾"
+read_only_style = "bold red"
+
+[git_branch]
+symbol = "󰘬 "
+style = "bold purple"
+format = "[$symbol$branch ]($style)"
+
+[git_status]
+style = "bold yellow"
+format = "([$all_status$ahead_behind ]($style))"
+conflicted = "!"
+ahead = "⇡"
+behind = "⇣"
+diverged = "⇕"
+untracked = "?"
+modified = "*"
+staged = "+"
+renamed = "»"
+deleted = "✘"
+
+[fill]
+symbol = " "
+
+[cmd_duration]
+min_time = 2000
+format = "[󱎫 $duration ](dimmed white)"
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❮](bold cyan)"
+
