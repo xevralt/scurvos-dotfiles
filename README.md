@@ -1,8 +1,8 @@
-# Kasperia — Hyprland Dotfiles
+# Scurvos — Hyprland Dotfiles
 
 A personal **Arch Linux + Hyprland** desktop built around a Tokyo Night / cyberpunk aesthetic, dynamic wallpaper-based colors, and a keyboard-driven workflow.
 
-> **Kasperia** — my personal Linux rice and configuration collection.
+> **Scurvos** — my personal Linux rice and configuration collection.
 
 ## ✨ Features
 
