@@ -152,15 +152,19 @@ The Zsh configuration also includes a `matrix` alias for a Matrix-style animatio
 
 ## 📸 Screenshots
 
-Screenshots of the current desktop can be added here as the project evolves.
+### Desktop
 
-Suggested captures:
+![Kasperia desktop](screenshots/desktop.png)
 
-- Full desktop with Waybar
-- Kitty with Starship
-- Rofi launcher
-- Wallpaper transition
-- Lock screen
+### Gallery
+
+| Terminal | Rofi |
+|---|---|
+| ![Kitty terminal](screenshots/terminal.png) | ![Rofi launcher](screenshots/rofi.png) |
+
+### Eye Candy
+
+![Kasperia eye candy](screenshots/eyecandy.png)
 
 ## ⚠️ Notes
 
