@@ -39,4 +39,5 @@ fi
 if [[ -r /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
     source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
-
+# Matrix rain
+alias matrix='$HOME/.local/bin/unimatrix -n -a -s 99 -l o -c green -o'
